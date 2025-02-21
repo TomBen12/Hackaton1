@@ -20,13 +20,6 @@ class Student:
 
         self.determination_points += amount
 
-    def get_status(self):
-
-        return (
-            f"\n {self.name} - Knowledge: {self.knowledge_points}, "
-            f"Stress: {self.stress_points}, Determination: {self.determination_points}"
-        )
-
 
 
 

@@ -1,5 +1,6 @@
 from student import Student
 
+
 class Gamer(Student):
     def __init__(self):
         super().__init__()
@@ -13,13 +14,14 @@ class Gamer(Student):
             "but starts off with no knowledge. Must balance gaming and studying carefully!"
         )
 
+    def get_status(self):
+        return (
+            f"\n {self.name} - Knowledge: {self.knowledge_points}, "
+            f"Stress: {self.stress_points}, Determination: {self.determination_points}"
+        )
 
-#Testing
+
+# Testing
 player = Gamer()
 print(player.get_status())
 
-player.adjust_knowledge(150)
-player.adjust_stress(-50)
-player.adjust_determination(-120)
-
-print(player.get_status())

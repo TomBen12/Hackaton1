@@ -58,9 +58,10 @@ class Narrator:
         self._say('')
 
 
+#TEST##
 narrator = Narrator()
 
-narrator.new_game_intro()
-narrator.what_is_your_name()
-narrator.what_type_are_you()
-narrator.all_set()
+# narrator.new_game_intro()
+# narrator.what_is_your_name()
+# narrator.what_type_are_you()
+# narrator.all_set()
