@@ -1,5 +1,11 @@
 
+---- STRESS GOT REMOVED ----
+this was the original plan but i had to scale it down to meet deadline/
+i'm leaving it for future inspication :)
+
+
 This game simulates a day at Developer Institute, where the player is a student trying to balance determination, stress, and knowledge to pass the final quiz at the end of the day.
+
 
 The player starts with:
 	•	Determination: 100
@@ -24,81 +30,6 @@ Knowledge Level (0 → 100)	Increases with correct answers, affects final quiz.
 
 15 different events that can happen at random between quizzez:
 
-You are coding, but your code won’t run!
-	•	(A) Google the error message → 🧠 +5 Knowledge
-	•	(B) Ask a classmate for help → 😰 +5 Stress, 💪 +5 Determination
-
-2️⃣ Teacher Calls on You
-📢 The instructor asks you to explain recursion!
-	•	(A) Try your best → 🧠 +5 Knowledge, 😰 +5 Stress
-	•	(B) Say you don’t know → 💪 -5 Determination
-
-3️⃣ Coffee Break
-📢 You feel tired. A coffee break sounds nice.
-	•	(A) Grab a coffee → 💪 +5 Determination
-	•	(B) Power through without coffee → 😰 +5 Stress, 🧠 +3 Knowledge
-
-4️⃣ Internet Issues
-📢 The WiFi suddenly goes down!
-	•	(A) Use your phone’s hotspot → 😰 +5 Stress
-	•	(B) Take a break until it comes back → 💪 +5 Determination
-
-5️⃣ Spilled Coffee on Laptop
-📢 Oops! Your coffee just spilled on your keyboard!
-	•	(A) Panic and clean up quickly → 😰 +10 Stress
-	•	(B) Stay calm and find paper towels → 💪 +5 Determination
-
-6️⃣ GitHub Merge Conflict
-📢 You have a merge conflict on GitHub!
-	•	(A) Try to fix it yourself → 🧠 +5 Knowledge, 😰 +5 Stress
-	•	(B) Ask your instructor for help → 💪 -5 Determination
-
-7️⃣ Extra Practice
-📢 You see an optional coding challenge.
-	•	(A) Attempt it for extra learning → 🧠 +10 Knowledge, 😰 +5 Stress
-	•	(B) Skip it and relax → 💪 +5 Determination
-
-8️⃣ Group Project Gone Wrong
-📢 Your group project partners aren’t doing anything!
-	•	(A) Take the lead and do the work → 😰 +10 Stress, 🧠 +5 Knowledge
-	•	(B) Let them fail and focus on your own tasks → 💪 -5 Determination
-
-9️⃣ Debugging Nightmare
-📢 You’ve been debugging for an hour with no progress!
-	•	(A) Step away and take a break → 💪 +5 Determination
-	•	(B) Keep going until you solve it → 😰 +5 Stress, 🧠 +5 Knowledge
-
-🔟 Surprise Pop Quiz
-📢 Your instructor announces a surprise quiz!
-	•	(A) Try your best → 🧠 +5 Knowledge, 😰 +5 Stress
-	•	(B) Guess random answers → 💪 -5 Determination
-
-1️⃣1️⃣ Motivational Speech
-📢 A senior developer shares their success story.
-	•	(A) Feel inspired and motivated → 💪 +10 Determination
-	•	(B) Tune out and scroll Twitter → 😰 +5 Stress
-
-1️⃣2️⃣ Power Outage
-📢 The lights go out, and your laptop is at 5% battery!
-	•	(A) Try to save your work quickly → 😰 +5 Stress
-	•	(B) Chill and wait for power to return → 💪 +5 Determination
-
-1️⃣3️⃣ Classmate Needs Help
-📢 A classmate asks you to explain a difficult topic.
-	•	(A) Help them out → 🧠 +5 Knowledge, 💪 -5 Determination
-	•	(B) Focus on your own work → 😰 -5 Stress
-
-1️⃣4️⃣ Late Night Coding
-📢 You’re considering staying up late to study more.
-	•	(A) Stay up and grind → 🧠 +10 Knowledge, 😰 +10 Stress
-	•	(B) Get some sleep → 💪 +10 Determination
-
-1️⃣5️⃣ Impostor Syndrome
-📢 You feel like everyone understands coding better than you.
-	•	(A) Remind yourself that learning takes time → 💪 +10 Determination
-	•	(B) Compare yourself to others → 😰 +10 Stress
-
-16 boink !!! A piece of the wall fell on your head, you lost -15 knowledge
 
 17 you understand the lesson ! a burst of determination erupt within you!
 knowledge +15

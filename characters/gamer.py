@@ -2,10 +2,10 @@ from characters.student import Student
 
 
 class Gamer(Student):
-    def __init__(self):
+    def __init__(self, knowledge=5, determination=30):  ###adjusttt
         super().__init__()
-        self.adjust_knowledge(0)
-        self.adjust_determination(-5)
+        self.adjust_knowledge(knowledge)
+        self.adjust_determination(determination)
 
     def description(self):
         return (
