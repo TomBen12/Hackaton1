@@ -1,11 +1,10 @@
-from student import Student
+from characters.student import Student
 
 
 class Hustler(Student):
     def __init__(self):
         super().__init__()
         self.adjust_knowledge(30)
-        self.adjust_stress(35)
         self.adjust_determination(-20)
 
     def description(self):
@@ -17,5 +16,5 @@ class Hustler(Student):
     def get_status(self):
         return (
             f"\n {self.name} - Knowledge: {self.knowledge_points}, "
-            f"Stress: {self.stress_points}, Determination: {self.determination_points}"
+            f"Determination: {self.determination_points}"
         )
