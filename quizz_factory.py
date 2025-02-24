@@ -1,10 +1,13 @@
 from backend.db_manager import NeonDatabaseManager
 from narrator import Narrator
+from tool_box import game_over_check
 
 # from characters.gamer import Gamer
 
 
 class Question:
+    """A class representing a multiple-choice question."""
+
     def __init__(self, topic, question, correct_answer, *answers):
         self.topic = topic
         self.question = question
@@ -13,21 +16,28 @@ class Question:
 
 
 class Quizz_Maker:
-    """This class has a method that create and display questions"""
+    """This class has a method that creates and displays questions"""
 
     def __init__(self):
         self.db_manager = NeonDatabaseManager()
         self.quizz_narrator = Narrator()
         self.question_list = []
 
-    def create_question_sequence(self, number="3", toughness="easy_questions"):
-        """this method create a sequence of 3 questions"""
+    def create_question_sequence(self, number, toughness):
+        """creates a sequence of questions"""
         self.db_manager.connect_to_db()
-        question_sequence = self.db_manager.retrieve_question_at_random(
-            number, toughness
-        )
-        self.db_manager.close_connection()
 
+        try:
+            question_sequence = self.db_manager.retrieve_question_at_random(
+                number, toughness
+            )
+        except Exception as e:
+            self.quizz_narrator._say(f"[pause]Error retrieving questions: {e}")
+            return
+        finally:
+            self.db_manager.close_connection()
+
+        # retrieved data into Question objects
         for q in question_sequence:
             topic = q["topic"]
             question_text = q["question"]
@@ -42,38 +52,52 @@ class Quizz_Maker:
             self.question_list.append(question_obj)
 
     def display_quizz(self, player):
-        """This method displays a quiz with multiple questions and checks answers."""
-        good_answers = 0
+        """displays a quiz with multiple questions and checks answers."""
+        if not self.question_list:
+            self.quizz_narrator._say(
+                "[pause]No questions available. Please try again later."
+            )
+            return 0  # Exit if there are no questions
+
+        good_answers = 0  # Track correct answers
+
         for question in self.question_list:
             self.quizz_narrator._say(question.question)
 
+            # Display answer choices
             for index, answer in enumerate(question.answers, start=1):
                 print(f"{index}. {answer}")
 
-            while True:
+            # Get valid player input
+            selected_answer = None
+            while selected_answer is None:
                 try:
-                    user_answer = int(input("Your Answer: "))
+                    user_answer = int(input("Your Answer: ").strip())
 
                     if 1 <= user_answer <= len(question.answers):
                         selected_answer = question.answers[user_answer - 1]
-                        break
                     else:
-                        print(
-                            "Invalid choice. Please enter a number corresponding to an answer."
+                        self.quizz_narrator._say(
+                            "[pause]Invalid choice. Enter a number from the options."
                         )
-                except Exception:
-                    print("Invalid input. Please enter a number.")
+                except ValueError:
+                    self.quizz_narrator._say(
+                        "[pause]Invalid input. Please enter a number."
+                    )
 
+            # check if the answer is correct
             if selected_answer == question.correct_answer:
                 self.quizz_narrator._say("...[pause]Correct Answer!")
                 good_answers += 1
-                player.adjust_knowledge(6)
+                player.adjust_knowledge(5)
                 player.adjust_determination(2)
             else:
                 self.quizz_narrator._say(
-                    f"[pause]...Wrong answer The correct answer was: {question.correct_answer}"
+                    f"[pause]...Wrong answer! The correct answer was: {question.correct_answer}"
                 )
-                player.adjust_determination(-6)
+                player.adjust_determination(-7)
+                game_over_check(player)  # Check if player should continue
+
         return good_answers
 
 

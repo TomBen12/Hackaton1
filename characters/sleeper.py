@@ -2,7 +2,7 @@ from characters.student import Student
 
 
 class Sleeper(Student):
-    def __init__(self, knowledge=30, determination=30):
+    def __init__(self, knowledge=18, determination=22):
         super().__init__()
         self.adjust_knowledge(knowledge)
         self.adjust_determination(determination)

@@ -9,7 +9,7 @@ class QuizzApiTool:
         self.API_KEY = os.getenv("API_KEY")
         self.BASE_URL = "https://quizapi.io/api/v1/questions"
 
-    def get_raw_questions(self, difficulty="easy", topic="HTML", limit="20"):
+    def get_raw_questions(self, difficulty, topic, limit):
         params = {
             "apiKey": self.API_KEY,
             "category": "code",

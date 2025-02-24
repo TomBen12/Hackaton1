@@ -2,7 +2,7 @@ from characters.student import Student
 
 
 class Gamer(Student):
-    def __init__(self, knowledge=5, determination=30):  ###adjusttt
+    def __init__(self, knowledge=17, determination=22):  ###adjusttt
         super().__init__()
         self.adjust_knowledge(knowledge)
         self.adjust_determination(determination)

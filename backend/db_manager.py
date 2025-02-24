@@ -48,7 +48,7 @@ class NeonDatabaseManager:
             print(f"{len(questions)} questions inserted into '{table}' successfully.")
 
         except Exception as e:
-            print("Error inserting questions:", e)
+            print("Error inserting quetions:", e)
 
         finally:
             cursor.close()
@@ -64,7 +64,7 @@ class NeonDatabaseManager:
             cursor.execute(query, (amount,))
             questions = cursor.fetchall()
 
-            column_names = [desc[0] for desc in cursor.description]
+            column_names = [descr[0] for descr in cursor.description]
             question_list = [dict(zip(column_names, row)) for row in questions]
             return question_list
 
@@ -82,6 +82,7 @@ class NeonDatabaseManager:
                 print("Error closing connection:", e)
         else:
             print("Nothing to close.")
+
 
 # test = NeonDatabaseManager()
 # test.connect_to_db()

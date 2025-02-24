@@ -3,6 +3,11 @@ from narrator import Narrator
 narrator = Narrator()
 
 
+def game_over_check(player):
+    if player.determination_points <= 0:
+        narrator.game_over()
+
+
 def format_name_input():
     while True:
         user_input = input("Enter your name: ").strip()
@@ -15,12 +20,13 @@ def format_name_input():
         else:
             return user_input
 
+
 def format_class_choice():
     valid_classes = {"H", "S", "G"}
 
     while True:
         user_input = input("Choose your class [H/S/G]: ").strip().upper()
-        
+
         if not user_input:
             narrator.not_valid_choice()
         elif user_input not in valid_classes:
