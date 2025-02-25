@@ -25,6 +25,7 @@ class Quizz_Maker:
 
     def create_question_sequence(self, number, toughness):
         """creates a sequence of questions"""
+        self.question_list = []
         self.db_manager.connect_to_db()
 
         try:

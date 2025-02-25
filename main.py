@@ -37,9 +37,7 @@ def main():
     ###---- morning -----###
     narrator.class_start(player)
     my_quiz_maker = Quizz_Maker()
-    q_list = my_quiz_maker.create_question_sequence(
-        number=3, toughness="easy_questions"
-    )
+    my_quiz_maker.create_question_sequence(number=3, toughness="easy_questions")
     my_quiz_maker.display_quizz(player)
     narrator.show_stats(player)
     narrator.survived_quiz()
@@ -51,10 +49,8 @@ def main():
     narrator.show_stats(player)
     narrator.class_continues()
     narrator.what_another_quiz()
-    my_quiz_maker_2 = Quizz_Maker()
-    q_list_2 = my_quiz_maker.create_question_sequence(
-        number=3, toughness="easy_questions"
-    )
+    my_quiz_maker = Quizz_Maker()
+    my_quiz_maker.create_question_sequence(number=3, toughness="easy_questions")
     my_quiz_maker.display_quizz(player)
     narrator.show_stats(player)
     narrator.survived_quiz()
@@ -74,10 +70,8 @@ def main():
     narrator.waiting()
     narrator.class_continues()
     narrator.what_another_quiz()
-    my_quiz_maker_3 = Quizz_Maker()
-    q_list_3 = my_quiz_maker.create_question_sequence(
-        number=3, toughness="easy_questions"
-    )
+    my_quiz_maker = Quizz_Maker()
+    my_quiz_maker.create_question_sequence(number=3, toughness="easy_questions")
     my_quiz_maker.display_quizz(player)
     narrator.show_stats(player)
     narrator.survived_quiz()
@@ -90,20 +84,25 @@ def main():
     narrator.class_continues()
     narrator.waiting()
     narrator.you_made_it_final()
+
     if player.knowledge_points > 50:
         my_quiz_maker_final = Quizz_Maker()
-        q_list_final = my_quiz_maker.create_question_sequence(
+        my_quiz_maker_final.create_question_sequence(
             number=6, toughness="easy_questions"
         )
-    elif 30 < player.knowledge_points < 50:
+        my_quiz_maker_final.display_quizz(player)
+
+    elif 30 <= player.knowledge_points < 50:
         my_quiz_maker_final = Quizz_Maker()
-        q_list_final = my_quiz_maker.create_question_sequence(
+        my_quiz_maker_final.create_question_sequence(
             number=6, toughness="medium_questions"
         )
+        my_quiz_maker_final.display_quizz(player)
+
     else:
         narrator.test_too_hard()
 
-    narrator.game_ending()
+    narrator.game_ending(player)
 
 
 main()

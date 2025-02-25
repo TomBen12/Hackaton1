@@ -26,14 +26,14 @@ class QuizzApiTool:
 
     def treat_raw_questions(self, raw_questions):
         if not isinstance(raw_questions, list):
-            print("raw_questions is not a list")
+            print("raw_questions is not a list....")
             return []
 
         treated_questions = []
         for item in raw_questions:
             question = item.get("question", "No Question")
             answers = item.get("answers", {})
-
+        
             correct_answer_key = None
             correct_answer_text = None
             if isinstance(item.get("correct_answers", {}), dict):
