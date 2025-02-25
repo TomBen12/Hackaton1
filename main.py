@@ -9,95 +9,104 @@ import tool_box as tools
 
 # def main():
 ###------Intro------###
-narrator = Narrator()
-narrator.welcome()
-narrator.rules()
-narrator.what_is_your_name()
-name = tools.format_name_input()
-narrator.beautiful_name(name)
-narrator.what_kindo(name)
-choice = tools.format_class_choice()
+def main():
 
-match choice:
-    case "H":
-        player = Hustler()
-        player.set_type("Hustler")
-    case "S":
-        player = Sleeper()
-        player.set_type("Sleeper")
-    case "G":
-        player = Gamer()
-        player.set_type("Gamer")
+    narrator = Narrator()
+    narrator.welcome()
+    narrator.rules()
+    narrator.what_is_your_name()
+    name = tools.format_name_input()
+    narrator.beautiful_name(name)
+    narrator.what_kindo(name)
+    choice = tools.format_class_choice()
 
-player.set_name(name)
-narrator.all_set(player)
+    match choice:
+        case "H":
+            player = Hustler()
+            player.set_type("Hustler")
+        case "S":
+            player = Sleeper()
+            player.set_type("Sleeper")
+        case "G":
+            player = Gamer()
+            player.set_type("Gamer")
 
-###---- morning -----###
-narrator.class_start(player)
-my_quiz_maker = Quizz_Maker()
-q_list = my_quiz_maker.create_question_sequence(number=3, toughness="easy_questions")
-my_quiz_maker.display_quizz(player)
-narrator.show_stats(player)
-narrator.survived_quiz()
-narrator.class_continues()
-narrator.waiting()
-narrator.somethig_is_happening()
-event_manager = RandomEventManager(player)
-event_manager.play_random_event()
-narrator.show_stats(player)
-narrator.class_continues()
-narrator.what_another_quiz()
-my_quiz_maker_2 = Quizz_Maker()
-q_list_2 = my_quiz_maker.create_question_sequence(number=3, toughness="easy_questions")
-my_quiz_maker.display_quizz(player)
-narrator.show_stats(player)
-narrator.survived_quiz()
-narrator.class_continues()
-narrator.waiting()
-narrator.somethig_is_happening()
-event_manager = RandomEventManager(player)
-event_manager.play_random_event()
-narrator.show_stats(player)
-narrator.class_continues()
-narrator.waiting()
-narrator.lunch_time()
-event_manager = RandomEventManager(player)
-event_manager.play_random_lunch()
-narrator.show_stats(player)
-## Evening ##
-narrator.waiting()
-narrator.class_continues()
-narrator.what_another_quiz()
-my_quiz_maker_3 = Quizz_Maker()
-q_list_3 = my_quiz_maker.create_question_sequence(number=3, toughness="easy_questions")
-my_quiz_maker.display_quizz(player)
-narrator.show_stats(player)
-narrator.survived_quiz()
-narrator.class_continues()
-narrator.waiting()
-narrator.somethig_is_happening()
-event_manager = RandomEventManager(player)
-event_manager.play_random_event()
-narrator.show_stats(player)
-narrator.class_continues()
-narrator.waiting()
-narrator.you_made_it_final()
-if player.knowledge_points > 50:
-    my_quiz_maker_final = Quizz_Maker()
-    q_list_final = my_quiz_maker.create_question_sequence(
-        number=6, toughness="easy_questions"
+    player.set_name(name)
+    narrator.all_set(player)
+
+    ###---- morning -----###
+    narrator.class_start(player)
+    my_quiz_maker = Quizz_Maker()
+    q_list = my_quiz_maker.create_question_sequence(
+        number=3, toughness="easy_questions"
     )
-elif 30 < player.knowledge_points < 50:
-    my_quiz_maker_final = Quizz_Maker()
-    q_list_final = my_quiz_maker.create_question_sequence(
-        number=6, toughness="medium_questions"
+    my_quiz_maker.display_quizz(player)
+    narrator.show_stats(player)
+    narrator.survived_quiz()
+    narrator.class_continues()
+    narrator.waiting()
+    narrator.somethig_is_happening()
+    event_manager = RandomEventManager(player)
+    event_manager.play_random_event()
+    narrator.show_stats(player)
+    narrator.class_continues()
+    narrator.what_another_quiz()
+    my_quiz_maker_2 = Quizz_Maker()
+    q_list_2 = my_quiz_maker.create_question_sequence(
+        number=3, toughness="easy_questions"
     )
-else:
-    narrator.test_too_hard()
+    my_quiz_maker.display_quizz(player)
+    narrator.show_stats(player)
+    narrator.survived_quiz()
+    narrator.class_continues()
+    narrator.waiting()
+    narrator.somethig_is_happening()
+    event_manager = RandomEventManager(player)
+    event_manager.play_random_event()
+    narrator.show_stats(player)
+    narrator.class_continues()
+    narrator.waiting()
+    narrator.lunch_time()
+    event_manager = RandomEventManager(player)
+    event_manager.play_random_lunch()
+    narrator.show_stats(player)
+    ## Evening ##
+    narrator.waiting()
+    narrator.class_continues()
+    narrator.what_another_quiz()
+    my_quiz_maker_3 = Quizz_Maker()
+    q_list_3 = my_quiz_maker.create_question_sequence(
+        number=3, toughness="easy_questions"
+    )
+    my_quiz_maker.display_quizz(player)
+    narrator.show_stats(player)
+    narrator.survived_quiz()
+    narrator.class_continues()
+    narrator.waiting()
+    narrator.somethig_is_happening()
+    event_manager = RandomEventManager(player)
+    event_manager.play_random_event()
+    narrator.show_stats(player)
+    narrator.class_continues()
+    narrator.waiting()
+    narrator.you_made_it_final()
+    if player.knowledge_points > 50:
+        my_quiz_maker_final = Quizz_Maker()
+        q_list_final = my_quiz_maker.create_question_sequence(
+            number=6, toughness="easy_questions"
+        )
+    elif 30 < player.knowledge_points < 50:
+        my_quiz_maker_final = Quizz_Maker()
+        q_list_final = my_quiz_maker.create_question_sequence(
+            number=6, toughness="medium_questions"
+        )
+    else:
+        narrator.test_too_hard()
 
-narrator.game_ending()
+    narrator.game_ending()
 
 
+main()
 # def morning_class(self):
 
 #     # here the narator will prepare user for the first quizz

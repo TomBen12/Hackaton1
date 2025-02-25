@@ -48,8 +48,8 @@ class RandomEventManager:
         ]
 
     def play_random_event(self):
-        rand_choice = random.choice(self.events)
-        self.events[rand_choice]()
+        rand_event = random.choice(self.events)
+        rand_event()
         game_over_check(self.player)
 
     def event_explain_recurtion(self):
@@ -201,9 +201,10 @@ class RandomEventManager:
         self.player.adjust_determination(5)
 
     ### LUNCH EVENTS ###
+
     def play_random_lunch(self):
-        rand_choice = random.choice(self.lunch_events)
-        self.lunch_events[rand_choice]()
+        rand_event = random.choice(self.lunch_events)
+        rand_event()
 
     def event_buffet_bonus(self):
         self.narrator._say(
